@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Gallery = () => {
+const Gallery = ({ setSelectedPhoto }) => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Gallery = () => {
   return (
     <div className="gallery">
       {photos.map((photo) => (
-        <div key={photo.id} className="photo-container">
+        <div key={photo.id} className="photo-container" onClick={() => setSelectedPhoto(photo)}>
           <img src={photo.url} alt={photo.tags.join(', ')} />
         </div>
       ))}
