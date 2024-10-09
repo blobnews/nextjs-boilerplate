@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from '../styles/Home.module.css';
 
 const PhotoEditor = ({ photo }) => {
   const [text, setText] = useState('');
@@ -8,6 +9,7 @@ const PhotoEditor = ({ photo }) => {
     // For the MVP, we'll just overlay the text visually without modifying the image itself.
     const canvas = document.createElement('canvas');
     const img = new Image();
+    img.crossOrigin = 'Anonymous';
     img.src = photo.url;
     img.onload = () => {
       canvas.width = img.width;
@@ -22,8 +24,8 @@ const PhotoEditor = ({ photo }) => {
   };
 
   return (
-    <div className="photo-editor">
-      <img src={editedPhotoUrl} alt="Edited Photo" />
+    <div className={styles.photoEditor}>
+      <img className={styles.photo} src={editedPhotoUrl} alt="Edited Photo" />
       <input
         type="text"
         placeholder="Add your text here"

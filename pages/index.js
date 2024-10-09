@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Gallery from './components/Gallery';
-import PhotoEditor from './components/PhotoEditor';
+import Gallery from '../components/Gallery';
+import PhotoEditor from '../components/PhotoEditor';
 
 const Home = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
